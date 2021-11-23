@@ -1,5 +1,14 @@
 import { FC } from "react";
+import Home from "./views/Home";
 
-const App: FC = () => <h1>App is working!</h1>;
+import AppTheme from "./state/AppTheme";
+
+const App: FC = () => {
+  return (
+    <AppTheme>
+      <Home />
+    </AppTheme>
+  );
+};
 
 export default App;
