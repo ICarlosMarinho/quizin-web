@@ -19,3 +19,13 @@ declare module "@material-ui/core/styles/createPalette" {
     neutral: PaletteOptions["primary"];
   }
 }
+
+declare module "*.png" {
+  content: any;
+  export default content;
+}
+
+declare module "*.svg" {
+  content: any;
+  export default content;
+}

@@ -1,12 +1,16 @@
 import { FC } from "react";
-import Home from "./views/Home";
 
 import AppTheme from "./state/AppTheme";
+import Header from "./components/Header";
+import Router from "./router";
+import Footer from "./components/Footer";
 
 const App: FC = () => {
   return (
     <AppTheme>
-      <Home />
+      <Header />
+      <Router />
+      <Footer />
     </AppTheme>
   );
 };

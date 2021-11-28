@@ -7,9 +7,8 @@ export interface StyleProps {
 }
 
 export const StyledButton = styled(Button)<StyleProps>`
-  border-radius: ${(props) =>
-    props.position === "left" ? "5px 0 0 5px" : "0 5px 5px 0"};
+  border-radius: ${(props) => (props.position === "left" ? "5px 0 0 5px" : "0 5px 5px 0")};
   text-transform: none;
   width: ${(props) => props.width || "100px"};
-  height: ${(props) => props.height || "35px"};
+  height: ${(props) => props.height || "40px"};
 `;
