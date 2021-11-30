@@ -1,17 +1,20 @@
 import { FC } from "react";
 
-import AppTheme from "./state/AppTheme";
+import AppThemeProvider from "./state/AppTheme";
 import Header from "./components/Header";
 import Router from "./router";
 import Footer from "./components/Footer";
+import AppContextProvider from "./state/AppContext";
 
 const App: FC = () => {
   return (
-    <AppTheme>
-      <Header />
-      <Router />
-      <Footer />
-    </AppTheme>
+    <AppContextProvider>
+      <AppThemeProvider>
+        <Header />
+        <Router />
+        <Footer />
+      </AppThemeProvider>
+    </AppContextProvider>
   );
 };
 

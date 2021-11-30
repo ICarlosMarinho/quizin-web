@@ -32,6 +32,16 @@ const theme = createTheme(
         fontSize: "32px",
         fontWeight: "bold",
         color: "#4C4C4C"
+      },
+      h4: {
+        fontSize: "24px",
+        fontWeight: "normal",
+        color: "#5B5B5B"
+      },
+      h6: {
+        fontSize: "16px",
+        fontWeight: "regular",
+        color: "#5B5B5B"
       }
     },
     shadows: shadows.map(() => "none") as Shadows
@@ -46,6 +56,6 @@ const theme = createTheme(
   }
 );
 
-const AppTheme: FC = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+const AppThemeProvider: FC = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 
-export default AppTheme;
+export default AppThemeProvider;

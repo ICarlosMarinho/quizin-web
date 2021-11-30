@@ -1,19 +1,20 @@
 import { Typography, IconButton, Box } from "@material-ui/core";
 import { ArrowBackIosNewRounded, ArrowForwardIosRounded } from "@mui/icons-material";
-import { FC, useState } from "react";
+import { FC, useContext } from "react";
 import { useNavigate } from "react-router";
-import QuizInButton from "../QuizInButton";
 
 import { Container } from "./style";
+import { AppContext } from "../../state/AppContext";
+import QuizInButton from "../QuizInButton";
 
 const QuestionsNumberCard: FC = () => {
-  const [questions, setQuestions] = useState(10);
+  const { setQuestionsNumber, questionsNumber } = useContext(AppContext);
   const navigate = useNavigate();
 
   const handleNumberChange = (action: "increment" | "decrement" | "reset") => {
-    if (action == "decrement") setQuestions(questions - 1);
-    else if (action == "increment") setQuestions(questions + 1);
-    else if (action == "reset") setQuestions(10);
+    if (action == "decrement") setQuestionsNumber(questionsNumber - 1);
+    else if (action == "increment") setQuestionsNumber(questionsNumber + 1);
+    else if (action == "reset") setQuestionsNumber(10);
   };
 
   const handleNextButton = () => navigate("/ready");
@@ -24,16 +25,16 @@ const QuestionsNumberCard: FC = () => {
         <IconButton
           aria-label="Decrement questions number"
           onClick={() => handleNumberChange("decrement")}
-          disabled={questions <= 1}>
+          disabled={questionsNumber <= 1}>
           <ArrowBackIosNewRounded />
         </IconButton>
         <Typography variant="h2" color="text.primary">
-          {Intl.NumberFormat("en", { minimumIntegerDigits: 2 }).format(questions)}
+          {Intl.NumberFormat("en", { minimumIntegerDigits: 2 }).format(questionsNumber)}
         </Typography>
         <IconButton
           aria-label="Increment questions number"
           onClick={() => handleNumberChange("increment")}
-          disabled={questions >= 99}>
+          disabled={questionsNumber >= 99}>
           <ArrowForwardIosRounded />
         </IconButton>
       </Box>

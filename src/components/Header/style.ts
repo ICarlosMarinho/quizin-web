@@ -12,7 +12,7 @@ export const HeaderContentArea = styled("header")(({ theme }) => ({
   display: "flex",
   alignItems: "baseline",
   gap: "30px",
-  padding: "20px 10px 0 10px"
+  padding: "20px 20px 0 20px"
 }));
 
 export const PathFront = styled("path")(({ theme }) => ({
