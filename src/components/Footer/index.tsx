@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 
 import { Container } from "./style";
 import GithubIcon from "../../../public/icons8-github.svg";

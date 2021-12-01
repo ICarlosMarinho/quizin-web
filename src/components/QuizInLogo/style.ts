@@ -1,4 +1,4 @@
-import { styled } from "@material-ui/core";
+import { styled } from "@mui/material";
 
 export const Heading = styled("h1")(({ theme }) => ({
   fontFamily: "Riffic",
@@ -10,6 +10,6 @@ export const Heading = styled("h1")(({ theme }) => ({
   }
 }));
 
-export const LogoColorVariation = styled("span")(({ theme }) => ({
-  color: theme.palette.tertiary.main
-}));
+export const LogoColorVariation = styled("span")({
+  color: "#F2B624"
+});

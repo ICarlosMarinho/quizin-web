@@ -1,4 +1,4 @@
-import { styled } from "@material-ui/system";
+import { styled } from "@mui/material";
 
 export const Container = styled("footer")({
   gridArea: "footer",

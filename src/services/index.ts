@@ -6,3 +6,10 @@ export const getQuizFromApi = (questionsNumber: number): Promise<Quiz | null> =>
     .then((response) => response.data)
     .catch(() => null);
 };
+
+export const revealAnswers = (questions: Question[]): Promise<Question[]> => {
+  return axios
+    .patch(`${process.env.API_URL}/revealAnswers`, questions)
+    .then((response) => response.data)
+    .catch(() => questions);
+};

@@ -1,6 +1,6 @@
 import { FC, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Typography, Box } from "@material-ui/core";
+import { Typography, Box } from "@mui/material";
 import { decode } from "html-entities";
 
 import { Container, Answer } from "./style";
@@ -17,7 +17,7 @@ const Question: FC = () => {
       ...currentQuiz,
       questions: currentQuiz?.questions.map((question) => {
         if (question.id == currentQuestion?.id) return { ...question, playerAnswer };
-        else return question;
+        else return { ...question };
       }) as Question[]
     } as Quiz);
 

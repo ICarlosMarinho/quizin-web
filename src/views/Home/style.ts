@@ -1,4 +1,4 @@
-import { styled, Box } from "@material-ui/core";
+import { styled, Box } from "@mui/material";
 
 export const Container = styled(Box)({
   gridArea: "app-content",

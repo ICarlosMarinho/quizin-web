@@ -1,5 +1,5 @@
 import { FC, useContext } from "react";
-import { Typography, Box } from "@material-ui/core";
+import { Typography, Box } from "@mui/material";
 
 import { Container } from "./style";
 import QuestionsNumberCard from "../../components/QuestionsNumberCard";

@@ -1,4 +1,4 @@
-import { Typography, IconButton, Box } from "@material-ui/core";
+import { Typography, IconButton, Box } from "@mui/material";
 import { ArrowBackIosNewRounded, ArrowForwardIosRounded } from "@mui/icons-material";
 import { FC, useContext } from "react";
 import { useNavigate } from "react-router";
