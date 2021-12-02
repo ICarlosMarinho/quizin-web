@@ -19,6 +19,11 @@ const theme = createTheme({
     }
   },
   typography: {
+    h1: {
+      fontSize: "46px",
+      fontWeight: "normal",
+      color: "#0889A6"
+    },
     h2: {
       fontSize: "36px",
       fontWeight: "bolder",

@@ -1,8 +1,8 @@
 import { styled } from "@mui/material";
 
 export const Container = styled("section")({
+  maxHeight: "min-content",
   height: "min-content",
-  minHeight: "fit-content",
   gridArea: "header"
 });
 

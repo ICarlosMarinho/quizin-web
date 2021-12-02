@@ -1,14 +1,12 @@
-import { styled } from "@mui/material";
+import { styled, Typography } from "@mui/material";
 
-export const Heading = styled("h1")(({ theme }) => ({
+export const Heading = styled(Typography)({
   fontFamily: "Riffic",
-  fontSize: theme.typography.pxToRem(46),
-  color: theme.palette.secondary.main,
 
   "&:hover": {
     cursor: "pointer"
   }
-}));
+});
 
 export const LogoColorVariation = styled("span")({
   color: "#F2B624"

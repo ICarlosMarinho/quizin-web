@@ -11,7 +11,7 @@ const QuizInLogo: FC = () => {
 
   return (
     <Tooltip title="Go to Homepage">
-      <Heading onClick={handleClick}>
+      <Heading variant="h1" onClick={handleClick}>
         Quiz
         <LogoColorVariation>?</LogoColorVariation>
         In
