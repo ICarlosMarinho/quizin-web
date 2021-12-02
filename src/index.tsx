@@ -1,5 +1,6 @@
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import { CssBaseline } from "@mui/material";
 
 import App from "./App";
 import AppContextProvider from "./state/AppContext";
@@ -11,6 +12,7 @@ render(
     <AppContextProvider>
       <AppThemeProvider>
         <ErrorBoundary>
+          <CssBaseline />
           <App />
         </ErrorBoundary>
       </AppThemeProvider>

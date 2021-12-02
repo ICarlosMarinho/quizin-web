@@ -36,11 +36,27 @@ const theme = createTheme({
     },
     h6: {
       fontSize: "16px",
-      fontWeight: "regular",
+      fontWeight: "normal",
       color: "#5B5B5B"
     }
   },
-  shadows: shadows.map(() => "none") as Shadows
+  shadows: shadows.map(() => "none") as Shadows,
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        "@font-face": {
+          fontFamily: "Riffic",
+          src: "url('../../../public/riffic.otf') format('otf')"
+        },
+
+        "*": {
+          boxSizing: "border-box",
+          margin: "0",
+          padding: "0"
+        }
+      }
+    }
+  }
 });
 
 const AppThemeProvider: FC = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;

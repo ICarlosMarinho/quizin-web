@@ -8,7 +8,7 @@ export const Container = styled("section")({
 
 export const HeaderContentArea = styled("header")(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
-  height: "60px",
+  height: "fit-content",
   display: "flex",
   alignItems: "baseline",
   gap: "30px",
