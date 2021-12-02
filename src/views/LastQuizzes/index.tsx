@@ -7,6 +7,7 @@ import QuizInTableCell from "../../components/QuizInTableCell";
 import { AppContext } from "../../state/AppContext";
 import { getCorrectsCounter } from "../../utils";
 import QuizInTableRow from "../../components/QuizInTableRow";
+import QuizInButton from "../../components/QuizInButton";
 
 const LastQuizzes: FC = () => {
   const { lastQuizzes, setCurrentQuiz, setQuestionsNumber } = useContext(AppContext);
@@ -32,7 +33,7 @@ const LastQuizzes: FC = () => {
     ));
 
   return (
-    <Container display="flex" justifyContent="center">
+    <Container display="flex" flexDirection="column" alignItems="center" gap="30px">
       {lastQuizzes ? (
         <TableContainer>
           <Table stickyHeader>
@@ -47,6 +48,9 @@ const LastQuizzes: FC = () => {
           </Table>
         </TableContainer>
       ) : null}
+      <QuizInButton width="max-content" onClick={() => navigate("/")}>
+        Home page
+      </QuizInButton>
     </Container>
   );
 };
