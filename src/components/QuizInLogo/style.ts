@@ -1,8 +1,8 @@
 import { styled, Typography } from "@mui/material";
 
 export const Heading = styled(Typography)({
-  fontFamily: "Riffic",
-
+  fontFamily: "Pacifico, Helvetica",
+  zIndex: "1",
   "&:hover": {
     cursor: "pointer"
   }

@@ -40,8 +40,12 @@ const Question: FC = () => {
   return (
     <Container>
       <Box display="flex" justifyContent="space-between">
-        <Typography variant="h6">{`Question ${current} of ${questionsNumber}`}</Typography>
-        <Typography variant="h6">{currentQuestion?.category}</Typography>
+        <Typography
+          variant="body2"
+          textAlign="left">{`Question ${current} of ${questionsNumber}`}</Typography>
+        <Typography variant="body2" textAlign="right">
+          {currentQuestion?.category}
+        </Typography>
       </Box>
       <Typography variant="h3">{decode(currentQuestion?.question)}</Typography>
       {renderAnswers()}

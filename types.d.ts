@@ -8,6 +8,11 @@ declare module "*.svg" {
   export default content;
 }
 
+declare module "*.otf" {
+  content: any;
+  export default content;
+}
+
 interface GetQuizReqParams {
   questionsNumber: number;
 }

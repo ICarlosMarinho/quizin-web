@@ -68,10 +68,10 @@ const Result: FC = () => {
   }, [lastQuizzes]);
 
   return (
-    <Container display="flex" flexDirection="column" alignItems="center">
+    <Container display="flex" flexDirection="column" alignItems="center" gap="20px">
       {renderContent ? (
         <>
-          <Typography variant="h2">
+          <Typography variant="h3">
             {`You’ve got ${getCorrectsCounter(currentQuiz)} answers right of ${questionsNumber}!`}
           </Typography>
           <TableContainer>

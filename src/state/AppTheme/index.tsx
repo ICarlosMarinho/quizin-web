@@ -20,22 +20,22 @@ const theme = createTheme({
   },
   typography: {
     h1: {
-      fontSize: "46px",
-      fontWeight: "normal",
+      fontSize: "36px",
+      fontWeight: "bolder",
       color: "#0889A6"
     },
     h2: {
-      fontSize: "36px",
+      fontSize: "34px",
       fontWeight: "bolder",
       color: "#4C4C4C"
     },
     h3: {
-      fontSize: "32px",
+      fontSize: "28px",
       fontWeight: "bold",
       color: "#4C4C4C"
     },
     h4: {
-      fontSize: "24px",
+      fontSize: "22px",
       fontWeight: "normal",
       color: "#5B5B5B"
     },
@@ -43,17 +43,17 @@ const theme = createTheme({
       fontSize: "16px",
       fontWeight: "normal",
       color: "#5B5B5B"
+    },
+    body2: {
+      fontSize: "14px",
+      fontWeight: "lighter",
+      color: "#5B5B5B"
     }
   },
   shadows: shadows.map(() => "none") as Shadows,
   components: {
     MuiCssBaseline: {
       styleOverrides: {
-        "@font-face": {
-          fontFamily: "Riffic",
-          src: "url('../../../public/riffic.otf') format('otf')"
-        },
-
         "*": {
           boxSizing: "border-box",
           margin: "0",

@@ -40,7 +40,7 @@ const Home: FC<ComponentProps> = ({ defaultContent }) => {
     <>
       <Box display="flex" flexDirection="column" alignItems="center" gap="30px">
         <Typography variant="h3">{defaultContent ? "Welcome to QuizIn" : "Are you ready?"}</Typography>
-        <Typography variant="h6">
+        <Typography variant="h6" textAlign="center">
           {defaultContent
             ? "First, choose the number of questions to answer."
             : "You can start the quiz now, or cancel and modify the number of questions."}
