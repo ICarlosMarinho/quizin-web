@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useEffect } from "react";
 import { Typography, Box } from "@mui/material";
 
 import { Container } from "./style";
@@ -7,6 +7,7 @@ import QuizInButton from "../../components/QuizInButton";
 import { useNavigate } from "react-router";
 import { AppContext } from "../../state/AppContext";
 import { getQuizFromApi } from "../../services";
+import { getLastQuizzesFromStorage } from "../../utils";
 
 interface ComponentProps {
   defaultContent?: boolean;
@@ -14,7 +15,8 @@ interface ComponentProps {
 
 const Home: FC<ComponentProps> = ({ defaultContent }) => {
   const navigate = useNavigate();
-  const { setCurrentQuiz, setLoading, setError, questionsNumber } = useContext(AppContext);
+  const { setCurrentQuiz, setLoading, setError, questionsNumber, setLastQuizzes, setQuestionsNumber } =
+    useContext(AppContext);
 
   const handleCancelButton = () => navigate("/");
   const handleStartButton = () => {
@@ -29,6 +31,10 @@ const Home: FC<ComponentProps> = ({ defaultContent }) => {
       .catch(() => setError(true))
       .finally(() => setLoading(false));
   };
+
+  useEffect(() => {
+    setLastQuizzes(getLastQuizzesFromStorage() as Quiz[]);
+  }, []);
 
   const renderContent = () => (
     <>

@@ -1,58 +1,94 @@
 import { FC, useContext, useEffect, useState } from "react";
-import { Typography, Table, TableHead, TableBody, TableRow } from "@mui/material";
+import { Typography, Table, TableHead, TableBody, TableRow, TableContainer } from "@mui/material";
 import { decode } from "html-entities";
+import { useNavigate } from "react-router";
 
-import { Container, StyledTableContainer, StyledTableCell } from "./style";
+import { Container } from "./style";
 import { AppContext } from "../../state/AppContext";
+import QuizInTableCell from "../../components/QuizInTableCell";
+import { correctAnswerRevealed, getCorrectsCounter, saveLastQuizzes } from "../../utils";
 import { revealAnswers } from "../../services";
+import QuizInTableRow from "../../components/QuizInTableRow";
+import QuizInButton from "../../components/QuizInButton";
 
 const Result: FC = () => {
-  const { currentQuiz, setCurrentQuiz, questionsNumber } = useContext(AppContext);
-  const [renderTable, setRenderTable] = useState(false);
-  const [correctsCounter, setCorrectsCounter] = useState(0);
+  const {
+    currentQuiz,
+    questionsNumber,
+    setLastQuizzes,
+    lastQuizzes,
+    setCurrentQuiz,
+    setQuestionsNumber,
+    setLoading
+  } = useContext(AppContext);
+  const [renderContent, setRenderContent] = useState(false);
+  const navigate = useNavigate();
 
   const renderTableData = () =>
     currentQuiz?.questions.map(({ id, question, playerAnswer, correctAnswer }) => (
-      <TableRow key={id}>
-        <StyledTableCell align="left">{decode(question)}</StyledTableCell>
-        <StyledTableCell align="center">{decode(playerAnswer)}</StyledTableCell>
-        <StyledTableCell align="right">{decode(correctAnswer as string)}</StyledTableCell>
-      </TableRow>
+      <QuizInTableRow key={id}>
+        <QuizInTableCell align="left">{decode(question)}</QuizInTableCell>
+        <QuizInTableCell align="center">{decode(playerAnswer)}</QuizInTableCell>
+        <QuizInTableCell align="right">{decode(correctAnswer as string)}</QuizInTableCell>
+      </QuizInTableRow>
     ));
 
   useEffect(() => {
-    revealAnswers(currentQuiz?.questions as Question[]).then((questions) => {
-      setCurrentQuiz({ ...currentQuiz, questions } as Quiz);
-      setRenderTable(true);
-    });
+    if (!correctAnswerRevealed(currentQuiz)) {
+      setLoading(true);
+
+      revealAnswers(currentQuiz?.questions as Question[]).then((questions) => {
+        setCurrentQuiz({ ...currentQuiz, questions } as Quiz);
+        setLoading(false);
+      });
+    }
+
+    return () => {
+      setCurrentQuiz(null);
+      setQuestionsNumber(10);
+    };
   }, []);
 
   useEffect(() => {
-    setCorrectsCounter(
-      currentQuiz?.questions.filter((question) => question.playerAnswer == question.correctAnswer)
-        .length as number
-    );
+    const exists = lastQuizzes?.find(({ id }) => id == currentQuiz?.id);
+
+    if (correctAnswerRevealed(currentQuiz)) {
+      if (!lastQuizzes && !exists) {
+        setLastQuizzes([currentQuiz as Quiz] as Quiz[]);
+      } else if (lastQuizzes && !exists) {
+        setLastQuizzes(lastQuizzes.concat(currentQuiz as Quiz));
+      }
+
+      setRenderContent(true);
+    }
   }, [currentQuiz]);
+
+  useEffect(() => {
+    if (lastQuizzes) saveLastQuizzes(lastQuizzes as Quiz[]);
+  }, [lastQuizzes]);
 
   return (
     <Container display="flex" flexDirection="column" alignItems="center">
-      {renderTable ? (
+      {renderContent ? (
         <>
           <Typography variant="h2">
-            {`You’ve got ${correctsCounter} answers right of ${questionsNumber}!`}
+            {`You’ve got ${getCorrectsCounter(currentQuiz)} answers right of ${questionsNumber}!`}
           </Typography>
-          <StyledTableContainer>
+          <TableContainer>
             <Table stickyHeader>
               <TableHead>
-                <TableRow>
-                  <StyledTableCell align="left">Question</StyledTableCell>
-                  <StyledTableCell align="center">Your answer</StyledTableCell>
-                  <StyledTableCell align="right">Correct answer</StyledTableCell>
-                </TableRow>
+                <QuizInTableRow>
+                  <QuizInTableCell align="left">Question</QuizInTableCell>
+                  <QuizInTableCell align="center">Your answer</QuizInTableCell>
+                  <QuizInTableCell align="right">Correct answer</QuizInTableCell>
+                </QuizInTableRow>
               </TableHead>
               <TableBody>{renderTableData()}</TableBody>
             </Table>
-          </StyledTableContainer>
+          </TableContainer>
+          <QuizInButton width="max-content" onClick={() => navigate("/")}>
+            Home page
+          </QuizInButton>
         </>
       ) : null}
     </Container>

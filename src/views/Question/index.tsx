@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Typography, Box } from "@mui/material";
 import { decode } from "html-entities";

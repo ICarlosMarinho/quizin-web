@@ -35,9 +35,9 @@ interface Quiz {
 
 interface AppState {
   currentQuiz: Quiz | null;
-  setCurrentQuiz: (quiz: Quiz) => void;
+  setCurrentQuiz: (quiz: Quiz | null) => void;
   lastQuizzes: Quiz[] | null;
-  setLastQuizzes: (quizzes: Quiz[]) => void;
+  setLastQuizzes: (quizzes: Quiz[] | null) => void;
   questionsNumber: number;
   setQuestionsNumber: (questionsNumber: number) => void;
   loading: boolean;
