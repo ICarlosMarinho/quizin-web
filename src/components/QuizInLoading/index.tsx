@@ -1,5 +1,5 @@
 import { FC, useContext } from "react";
-import { Modal, CircularProgress } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import { LoadingContainer } from "./style";
 import { AppContext } from "../../state/AppContext";

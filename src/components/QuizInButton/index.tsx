@@ -1,4 +1,4 @@
-import { ButtonProps } from "@mui/material";
+import { ButtonProps } from "@mui/material/Button";
 import { FC } from "react";
 
 import { StyledButton, StyleProps } from "./style";

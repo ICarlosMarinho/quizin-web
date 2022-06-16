@@ -1,6 +1,9 @@
 import { FC, useContext } from "react";
-import { Table, TableContainer, TableHead, TableBody, TableRow } from "@mui/material";
 import { useNavigate } from "react-router";
+import Table from "@mui/material/Table";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableBody from "@mui/material/TableBody";
 
 import { Container } from "./style";
 import QuizInTableCell from "../../components/QuizInTableCell";

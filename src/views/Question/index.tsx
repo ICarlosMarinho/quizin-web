@@ -1,7 +1,8 @@
 import { FC, useContext, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Typography, Box } from "@mui/material";
 import { decode } from "html-entities";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 import { Container, Answer } from "./style";
 import { AppContext } from "../../state/AppContext";

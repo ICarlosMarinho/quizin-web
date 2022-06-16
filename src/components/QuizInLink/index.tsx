@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useNavigate } from "react-router";
+import { WithChildren } from "../../types";
 
 import { LinkButton } from "./style";
 
@@ -8,7 +9,7 @@ interface ComponentProps {
   disabled?: boolean;
 }
 
-const QuizInLink: FC<ComponentProps> = ({ to, children, disabled }) => {
+const QuizInLink = ({ to, children, disabled }: WithChildren<ComponentProps>) => {
   const navigate = useNavigate();
 
   const handleClick = () => navigate(to);

@@ -1,4 +1,5 @@
-import { styled, TableRow } from "@mui/material";
+import styled from "@mui/material/styles/styled";
+import TableRow from "@mui/material/TableRow";
 
 export const Container = styled(TableRow)(({ theme, hover }) => ({
   borderRadius: "5px",

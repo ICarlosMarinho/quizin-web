@@ -1,7 +1,11 @@
 import { FC, useContext, useEffect, useState } from "react";
-import { Typography, Table, TableHead, TableBody, TableRow, TableContainer } from "@mui/material";
 import { decode } from "html-entities";
 import { useNavigate } from "react-router";
+import Typography from "@mui/material/Typography";
+import Table from "@mui/material/Table";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableBody from "@mui/material/TableBody";
 
 import { Container } from "./style";
 import { AppContext } from "../../state/AppContext";
