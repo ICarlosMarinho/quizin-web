@@ -1,4 +1,5 @@
-import { styled, Typography } from "@mui/material";
+import styled from "@mui/material/styles/styled";
+import Typography from "@mui/material/Typography";
 
 export const Heading = styled(Typography)({
   fontFamily: "Pacifico, Helvetica",

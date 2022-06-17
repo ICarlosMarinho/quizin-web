@@ -1,5 +1,7 @@
 import { createContext, FC, useState } from "react";
 
+import { WithChildren } from "../../types";
+
 export const AppContext = createContext<AppState>({
   currentQuiz: null,
   setCurrentQuiz: () => null,
@@ -13,7 +15,7 @@ export const AppContext = createContext<AppState>({
   setError: () => null
 });
 
-const AppContextProvider: FC = ({ children }) => {
+const AppContextProvider = ({ children }: WithChildren) => {
   const [currentQuiz, setCurrentQuiz] = useState<Quiz | null>(null);
   const [lastQuizzes, setLastQuizzes] = useState<Quiz[] | null>(null);
   const [questionsNumber, setQuestionsNumber] = useState(10);

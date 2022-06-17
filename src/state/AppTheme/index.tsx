@@ -1,6 +1,8 @@
 import { FC } from "react";
-import { createTheme, ThemeProvider } from "@mui/material";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
+import createTheme from "@mui/material/styles/createTheme";
 import shadows, { Shadows } from "@mui/material/styles/shadows";
+import { WithChildren } from "../../types";
 
 const theme = createTheme({
   palette: {
@@ -64,6 +66,6 @@ const theme = createTheme({
   }
 });
 
-const AppThemeProvider: FC = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+const AppThemeProvider = ({ children }: WithChildren) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 
 export default AppThemeProvider;

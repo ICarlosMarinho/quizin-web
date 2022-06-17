@@ -1,10 +1,11 @@
 import { FC, useContext, useEffect } from "react";
-import { Typography, Box } from "@mui/material";
+import { useNavigate } from "react-router";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 import { Container } from "./style";
 import QuestionsNumberCard from "../../components/QuestionsNumberCard";
 import QuizInButton from "../../components/QuizInButton";
-import { useNavigate } from "react-router";
 import { AppContext } from "../../state/AppContext";
 import { getQuizFromApi } from "../../services";
 import { getLastQuizzesFromStorage } from "../../utils";
@@ -62,7 +63,7 @@ const Home: FC<ComponentProps> = ({ defaultContent }) => {
   );
 
   return (
-    <Container display="flex" flexDirection="column" alignItems="center" gap="80px">
+    <Container component="main" display="flex" flexDirection="column" alignItems="center" gap="80px">
       {renderContent()}
     </Container>
   );

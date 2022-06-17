@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ModalProps } from "@mui/material";
+import { ModalProps } from "@mui/material/Modal";
 
 import { Container } from "./style";
 

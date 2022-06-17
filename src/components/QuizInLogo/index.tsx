@@ -1,4 +1,4 @@
-import { Tooltip } from "@mui/material";
+import Tooltip from "@mui/material/Tooltip";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 

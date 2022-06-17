@@ -1,13 +1,14 @@
-import { Component, ErrorInfo, ReactNode } from "react";
-import { Typography } from "@mui/material";
+import React, { Component, ErrorInfo, ReactNode } from "react";
+import Typography from "@mui/material/Typography";
 
 import { Container } from "./style";
+import { WithChildren } from "../../types";
 
 interface State {
   error: boolean;
 }
 
-class ErrorBoundary extends Component {
+class ErrorBoundary extends Component<WithChildren> {
   public state: State = {
     error: false
   };

@@ -1,22 +1,25 @@
-import { render } from "react-dom";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import { CssBaseline } from "@mui/material";
+import GlobalStyles from "@mui/material/GlobalStyles";
 
 import App from "./App";
 import AppContextProvider from "./state/AppContext";
 import AppThemeProvider from "./state/AppTheme";
 import ErrorBoundary from "./components/ErrorBoundary";
+import styles from "./styles";
 
-render(
+const container = document.getElementById("app-root") as HTMLElement;
+const root = ReactDOM.createRoot(container);
+
+root.render(
   <BrowserRouter>
     <AppContextProvider>
       <AppThemeProvider>
         <ErrorBoundary>
-          <CssBaseline />
+          <GlobalStyles styles={styles} />
           <App />
         </ErrorBoundary>
       </AppThemeProvider>
     </AppContextProvider>
   </BrowserRouter>,
-  document.getElementById("app-root")
 );

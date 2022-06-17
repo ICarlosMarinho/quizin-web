@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { TableRowProps } from "@mui/material";
+import { TableRowProps } from "@mui/material/TableRow";
 
 import { Container } from "./style";
 

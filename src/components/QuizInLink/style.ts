@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import styled from "@mui/material/styles/styled";
 
 export const LinkButton = styled("button")(({ theme }) => ({
   fontSize: theme.typography.pxToRem(16),

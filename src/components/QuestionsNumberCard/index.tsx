@@ -1,7 +1,10 @@
-import { Typography, IconButton, Box } from "@mui/material";
-import { ArrowBackIosNewRounded, ArrowForwardIosRounded } from "@mui/icons-material";
-import { FC, useContext } from "react";
 import { useNavigate } from "react-router";
+import { FC, useContext } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import ArrowBackIosNewRounded from "@mui/icons-material/ArrowBackIosNewRounded";
+import ArrowForwardIosRounded from "@mui/icons-material/ArrowForwardIosRounded";
 
 import { Container } from "./style";
 import { AppContext } from "../../state/AppContext";
